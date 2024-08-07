@@ -4,15 +4,15 @@ type FormProps = {
   getWeather: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const Form = (props: FormProps) => {
+const Form = ({ city, setCity, getWeather }: FormProps) => {
   return (
-    <form onSubmit={props.getWeather}>
+    <form onSubmit={getWeather}>
       <input
         type="text"
         name="city"
         placeholder="都市名を入力"
-        onChange={(e) => props.setCity(e.target.value)}
-        value={props.city}
+        onChange={(e) => setCity(e.target.value)}
+        value={city}
       />
       <button type="submit">Get Weather</button>
     </form>

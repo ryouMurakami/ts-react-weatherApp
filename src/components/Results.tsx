@@ -8,20 +8,21 @@ type ResultsProps = {
   };
 };
 
-const Results = (props: ResultsProps) => {
+const Results = ({ results }: ResultsProps) => {
+  const { country, cityName, temperature, icon, conditionText } = results;
   return (
     <>
-      {props.results.country && (
+      {country && (
         <>
-          <div className="results-country">{props.results.country}</div>
-          <div className="results-city">{props.results.cityName}</div>
+          <div className="results-country">{country}</div>
+          <div className="results-city">{cityName}</div>
           <div className="results-temp">
-            {props.results.temperature}
+            {temperature}
             <span>℃</span>
           </div>
           <div className="results-condition">
-            <img src={props.results.icon} alt="icon" />
-            <span>{props.results.conditionText}</span>
+            <img src={icon} alt="icon" />
+            <span>{conditionText}</span>
           </div>
         </>
       )}
